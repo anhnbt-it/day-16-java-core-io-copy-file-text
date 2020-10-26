@@ -9,8 +9,6 @@ import java.util.Scanner;
  */
 public class CopyFileText {
     public static void main(String[] args) {
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
         try {
             Scanner input = new Scanner(System.in);
             System.out.println("Nhập đường dẫn đến tập tin nguồn: ");
@@ -21,8 +19,8 @@ public class CopyFileText {
                 if (targetFile.exists()) {
                     System.out.println("Tập tin đích đã tồn tại!");
                 } else {
-                    inputStream = new FileInputStream(sourceFile);
-                    outputStream = new FileOutputStream(targetFile);
+                    InputStream inputStream = new FileInputStream(sourceFile);
+                    OutputStream outputStream = new FileOutputStream(targetFile);
                     byte[] buffer = new byte[1024];
                     int length;
                     while ((length = inputStream.read(buffer)) > 0) {
